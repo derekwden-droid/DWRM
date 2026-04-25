@@ -1,8 +1,6 @@
 {
-  "framework": null,
-  "buildCommand": null,
-  "installCommand": null,
-  "outputDirectory": ".",
+  "buildCommand": "cd _frontend && npm install && npm run build",
+  "outputDirectory": "_frontend/dist",
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api/index.py" }
   ]

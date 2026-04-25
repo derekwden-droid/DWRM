@@ -2,5 +2,5 @@
   "name": "dwrm",
   "version": "1.0.0",
   "private": true,
-  "description": "DWRM — static site root. Frontend is prebuilt into /assets. API lives in /api (Python). No build step required at this level."
+  "description": "DWRM root. Vercel builds the React frontend from _frontend/ and serves the Python API from /api/."
 }
