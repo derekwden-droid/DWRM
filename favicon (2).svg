@@ -1,1 +1,238 @@
-*,:before,:after{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content: ""}html,:host{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:JetBrains Mono,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}*,*:before,*:after{box-sizing:border-box}html,body,#root{height:100%;margin:0;padding:0}body{background-color:#030712;color:#e2e8f0;font-family:JetBrains Mono,monospace;font-size:13px;line-height:1.6;-webkit-font-smoothing:antialiased}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#111827}::-webkit-scrollbar-thumb{background:#374151;border-radius:2px}.card{background-color:#111827;border:1px solid #1f2937;border-radius:2px}.card-header{border-bottom:1px solid #1f2937;padding:8px 16px;display:flex;align-items:center;gap:8px;font-size:11px;color:#6b7280;letter-spacing:.1em;text-transform:uppercase}.field-label{display:block;font-size:10px;color:#6b7280;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}.text-input{width:100%;background-color:#0d1117;border:1px solid #1f2937;color:#e2e8f0;padding:8px 12px;font-size:12px;font-family:JetBrains Mono,monospace;outline:none;transition:border-color .15s}.text-input:focus{border-color:#a78bfa80}.text-input::-moz-placeholder{color:#6b728080}.text-input::placeholder{color:#6b728080}.btn-primary{background-color:#a78bfa1a;border:1px solid rgba(167,139,250,.4);color:#a78bfa;padding:8px 16px;font-size:11px;font-family:JetBrains Mono,monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .15s}.btn-primary:hover:not(:disabled){background-color:#a78bfa33;border-color:#a78bfab3}.btn-primary:disabled{opacity:.3;cursor:not-allowed}.btn-ghost{background:transparent;border:1px solid #1f2937;color:#6b7280;padding:6px 12px;font-size:11px;font-family:JetBrains Mono,monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .15s}.btn-ghost:hover:not(:disabled){border-color:#374151;color:#e2e8f0}.btn-ghost:disabled{opacity:.3;cursor:not-allowed}.badge-cpu{border:1px solid rgba(245,158,11,.3);background:#f59e0b0d;color:#f59e0b;padding:2px 8px;font-size:10px}.badge-gpu{border:1px solid rgba(96,165,250,.3);background:#60a5fa0d;color:#60a5fa;padding:2px 8px;font-size:10px}.badge-quantum{border:1px solid rgba(167,139,250,.3);background:#a78bfa0d;color:#a78bfa;padding:2px 8px;font-size:10px}.score-bar-track{height:4px;background-color:#37415180;border-radius:2px;overflow:hidden}.score-bar-fill{height:100%;border-radius:2px;transition:width .7s cubic-bezier(.4,0,.2,1)}.collapse{visibility:collapse}.sticky{position:sticky}.inline-block{display:inline-block}.flex{display:flex}.table{display:table}.grid{display:grid}.hidden{display:none}.resize{resize:both}.border{border-width:1px}.uppercase{text-transform:uppercase}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}@keyframes fadeIn{0%{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.fade-in{animation:fadeIn .3s ease forwards}@keyframes spin{to{transform:rotate(360deg)}}.spinner{display:inline-block;width:12px;height:12px;border:2px solid rgba(167,139,250,.3);border-top-color:#a78bfa;border-radius:50%;animation:spin .7s linear infinite}
+import { useState } from 'react'
+
+var SAMPLES = [
+  {
+    label: 'RSA Factoring',
+    description: 'Factor a 2048-bit RSA modulus. Requires decomposing a large semiprime into its prime factors for cryptanalysis.',
+    problem_type: 'factoring',
+    data_size_gb: 0.001,
+    cost_budget_usd: 5,
+    priority: 'high',
+  },
+  {
+    label: 'Drug Binding Simulation',
+    description: 'Quantum chemistry simulation of molecular orbital interactions for a candidate kinase inhibitor binding analysis.',
+    problem_type: 'quantum_simulation',
+    data_size_gb: 0.4,
+    cost_budget_usd: 8,
+    priority: 'normal',
+  },
+  {
+    label: 'LLM Fine-Tuning (7B)',
+    description: 'Supervised fine-tuning on a 7B parameter transformer. Dataset: 2M instruction pairs, 12GB of tokenized text.',
+    problem_type: 'ml_training',
+    data_size_gb: 12,
+    cost_budget_usd: 25,
+    priority: 'normal',
+  },
+  {
+    label: 'Route Optimization',
+    description: 'Traveling salesman variant: optimize delivery routes for 850 stops across a metropolitan grid with time windows.',
+    problem_type: 'optimization',
+    data_size_gb: 0.05,
+    cost_budget_usd: 2,
+    priority: 'high',
+  },
+  {
+    label: 'Log Parsing Pipeline',
+    description: 'Parse and index 500MB of structured application logs. Extract error patterns and latency percentiles.',
+    problem_type: 'data_processing',
+    data_size_gb: 0.5,
+    cost_budget_usd: 0.10,
+    priority: 'critical',
+  },
+  {
+    label: 'Portfolio Risk (Monte Carlo)',
+    description: 'Monte Carlo simulation: 1,200-asset portfolio under 100,000 market scenarios. Compute VaR and CVaR.',
+    problem_type: 'monte_carlo',
+    data_size_gb: 2.0,
+    cost_budget_usd: 4,
+    priority: 'high',
+  },
+]
+
+var PRIORITIES = ['low', 'normal', 'high', 'critical']
+
+var PRIORITY_COLORS = {
+  low:      { bg: 'rgba(55,65,81,0.4)',     border: '#374151', color: '#6b7280' },
+  normal:   { bg: 'rgba(167,139,250,0.15)', border: 'rgba(167,139,250,0.6)', color: '#a78bfa' },
+  high:     { bg: 'rgba(251,191,36,0.15)',  border: 'rgba(251,191,36,0.6)',  color: '#fbbf24' },
+  critical: { bg: 'rgba(248,113,113,0.15)', border: 'rgba(248,113,113,0.6)', color: '#f87171' },
+}
+
+export default function WorkloadForm({ onSubmit, loading }) {
+  var [description, setDescription] = useState('')
+  var [problemType, setProblemType] = useState('')
+  var [dataGb, setDataGb] = useState('')
+  var [timeSec, setTimeSec] = useState('')
+  var [budgetUsd, setBudgetUsd] = useState('')
+  var [priority, setPriority] = useState('normal')
+  var [showSamples, setShowSamples] = useState(false)
+
+  function loadSample(s) {
+    setDescription(s.description)
+    setProblemType(s.problem_type || '')
+    setDataGb(s.data_size_gb != null ? String(s.data_size_gb) : '')
+    setTimeSec('')
+    setBudgetUsd(s.cost_budget_usd != null ? String(s.cost_budget_usd) : '')
+    setPriority(s.priority || 'normal')
+    setShowSamples(false)
+  }
+
+  function handleSubmit() {
+    if (!description.trim()) return
+    var payload = { description: description.trim(), priority: priority }
+    if (problemType.trim()) payload.problem_type = problemType.trim()
+    if (dataGb)   payload.data_size_gb          = parseFloat(dataGb)
+    if (timeSec)  payload.time_budget_seconds    = parseFloat(timeSec)
+    if (budgetUsd) payload.cost_budget_usd       = parseFloat(budgetUsd)
+    onSubmit(payload)
+  }
+
+  function handleClear() {
+    setDescription('')
+    setProblemType('')
+    setDataGb('')
+    setTimeSec('')
+    setBudgetUsd('')
+    setPriority('normal')
+  }
+
+  return (
+    <div className="card">
+      <div className="card-header" style={{ justifyContent: 'space-between' }}>
+        <span style={{ color: '#a78bfa' }}>INPUT</span>
+        <button
+          className="btn-ghost"
+          style={{ padding: '2px 8px', fontSize: 10 }}
+          onClick={function () { setShowSamples(function (v) { return !v }) }}
+        >
+          {showSamples ? 'hide samples' : 'load sample'}
+        </button>
+      </div>
+
+      {showSamples && (
+        <div style={{ borderBottom: '1px solid #1f2937', padding: 8, display: 'flex', flexDirection: 'column', gap: 4 }}>
+          {SAMPLES.map(function (s) {
+            return (
+              <button
+                key={s.label}
+                onClick={function () { loadSample(s) }}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid #1f2937',
+                  color: '#e2e8f0',
+                  padding: '8px 12px',
+                  textAlign: 'left',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                  fontSize: 12,
+                  transition: 'border-color 0.15s',
+                }}
+                onMouseEnter={function (e) { e.currentTarget.style.borderColor = 'rgba(167,139,250,0.5)' }}
+                onMouseLeave={function (e) { e.currentTarget.style.borderColor = '#1f2937' }}
+              >
+                <div style={{ color: '#a78bfa', fontSize: 11, fontWeight: 600 }}>{s.label}</div>
+                <div style={{ color: '#6b7280', fontSize: 10, marginTop: 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.description}</div>
+              </button>
+            )
+          })}
+        </div>
+      )}
+
+      <div style={{ padding: 16, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div>
+          <label className="field-label">Description *</label>
+          <textarea
+            className="text-input"
+            style={{ minHeight: 88, resize: 'vertical' }}
+            placeholder="Describe the computational task..."
+            value={description}
+            onChange={function (e) { setDescription(e.target.value) }}
+          />
+        </div>
+
+        <div>
+          <label className="field-label">Problem Type <span style={{ color: '#374151' }}>(optional)</span></label>
+          <input
+            type="text"
+            className="text-input"
+            placeholder="e.g. optimization, ml_training, factoring"
+            value={problemType}
+            onChange={function (e) { setProblemType(e.target.value) }}
+          />
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+          <div>
+            <label className="field-label">Data (GB)</label>
+            <input type="number" className="text-input" placeholder="0" min="0" step="0.01"
+              value={dataGb} onChange={function (e) { setDataGb(e.target.value) }} />
+          </div>
+          <div>
+            <label className="field-label">Time (s)</label>
+            <input type="number" className="text-input" placeholder="—" min="0" step="1"
+              value={timeSec} onChange={function (e) { setTimeSec(e.target.value) }} />
+          </div>
+          <div>
+            <label className="field-label">Budget ($)</label>
+            <input type="number" className="text-input" placeholder="—" min="0" step="0.01"
+              value={budgetUsd} onChange={function (e) { setBudgetUsd(e.target.value) }} />
+          </div>
+        </div>
+
+        <div>
+          <label className="field-label">Priority</label>
+          <div style={{ display: 'flex', gap: 6 }}>
+            {PRIORITIES.map(function (p) {
+              var active = priority === p
+              var colors = PRIORITY_COLORS[p]
+              return (
+                <button
+                  key={p}
+                  onClick={function () { setPriority(p) }}
+                  style={{
+                    flex: 1,
+                    padding: '6px 0',
+                    fontSize: 10,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    fontFamily: 'inherit',
+                    cursor: 'pointer',
+                    border: '1px solid ' + (active ? colors.border : '#1f2937'),
+                    background: active ? colors.bg : 'transparent',
+                    color: active ? colors.color : '#374151',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {p}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', gap: 8, paddingTop: 4 }}>
+          <button
+            className="btn-primary"
+            style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
+            onClick={handleSubmit}
+            disabled={loading || !description.trim()}
+          >
+            {loading ? (
+              <>
+                <span className="spinner" />
+                Classifying...
+              </>
+            ) : (
+              'Route Workload'
+            )}
+          </button>
+          <button className="btn-ghost" onClick={handleClear} disabled={loading}>
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
