@@ -8,14 +8,6 @@
 
 ---
 
-## Features
-
-- **Workload Classification** — Claude AI scores quantum advantage, parallelism, and data intensity
-- **Dynamic Routing** — dispatches to CPU, GPU, or quantum based on the classification
-- **Cost Enforcement** — automatic fallback when cost budget is exceeded
-- **Audit Trail** — every routing decision logged with full reasoning
-- **Session Metrics** — live distribution stats across all three backends
-
 ## Stack
 
 | Layer    | Technology                          |
@@ -29,17 +21,17 @@
 
 ```
 DWRM/
-├── _frontend/              # React source — Vercel builds this on every deploy
-│   ├── index.html          # Vite entry
+├── frontend/               # React source — Vercel builds this on deploy
+│   ├── index.html
 │   ├── src/
 │   ├── package.json
+│   ├── package-lock.json
 │   └── vite.config.js
 ├── api/
 │   └── index.py            # FastAPI + Mangum serverless handler
-├── package.json            # root marker (no scripts)
-├── vercel.json             # tells Vercel to build _frontend/ and serve _frontend/dist/
-├── .vercelignore
-├── requirements.txt        # Python deps for the serverless function
+├── package.json            # root marker
+├── vercel.json             # build config + API rewrite
+├── requirements.txt        # Python deps
 ├── runtime.txt             # Python 3.11
 └── .env.example
 ```
@@ -47,22 +39,18 @@ DWRM/
 ## How the Deploy Works
 
 Vercel runs:
-1. `cd _frontend && npm install && npm run build` — produces `_frontend/dist/index.html` + `_frontend/dist/assets/*`
-2. Serves `_frontend/dist/` as the static site
-3. Auto-detects `api/index.py` and turns it into a Python serverless function
+1. `cd frontend && npm ci --include=dev && npm run build` — produces `frontend/dist/`
+2. Serves `frontend/dist/` as the static site
+3. Auto-detects `api/index.py` as a Python serverless function
 4. Rewrites `/api/*` → the function
-
-This is configured in `vercel.json`. **No prebuilt files in the repo, no manual asset copying** — Vercel handles everything from source.
 
 ## Deploy to Vercel
 
 1. Push this repo to GitHub
 2. Import at [vercel.com/new](https://vercel.com/new)
-3. **Leave all framework / build / output settings on default** — `vercel.json` declares them
+3. Leave all framework / build / output settings on default — `vercel.json` declares them
 4. Add environment variable: `ANTHROPIC_API_KEY`
 5. Deploy
-
-That's it. Every push triggers a fresh build.
 
 ## Local Development
 
@@ -74,18 +62,18 @@ uvicorn api.index:app --reload
 
 **Frontend (terminal 2):**
 ```bash
-cd _frontend
+cd frontend
 npm install
 npm run dev
 ```
 
-Vite dev server runs on `http://localhost:3000` and proxies `/api/*` to `http://localhost:8000` (the uvicorn server). See `_frontend/vite.config.js`.
+Vite dev server runs on `http://localhost:3000` and proxies `/api/*` to `http://localhost:8000`.
 
 ## Environment Variables
 
-| Variable            | Where                       | Description                  |
-|---------------------|-----------------------------|------------------------------|
-| `ANTHROPIC_API_KEY` | Vercel + `.env` for local   | Anthropic API key (required) |
+| Variable            | Description                  |
+|---------------------|------------------------------|
+| `ANTHROPIC_API_KEY` | Anthropic API key (required) |
 
 ## License
 

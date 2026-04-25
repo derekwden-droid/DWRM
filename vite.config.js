@@ -1,85 +1,88 @@
-import { useEffect, useState } from 'react'
-import { getMetrics } from '../api/client.js'
-
-var ROWS = [
-  { key: 'quantum', label: 'Quantum', color: '#a78bfa', icon: '⬡' },
-  { key: 'gpu',     label: 'GPU',     color: '#60a5fa', icon: '▣' },
-  { key: 'cpu',     label: 'CPU',     color: '#f59e0b', icon: '▢' },
-]
-
-function Bar({ pct, color }) {
-  var [width, setWidth] = useState(0)
-  useEffect(function () {
-    var t = setTimeout(function () { setWidth(pct) }, 150)
-    return function () { clearTimeout(t) }
-  }, [pct])
-  return (
-    <div className="score-bar-track" style={{ flex: 1 }}>
-      <div className="score-bar-fill" style={{ width: width + '%', backgroundColor: color }} />
-    </div>
-  )
+var BACKEND_BADGE = {
+  quantum: 'badge-quantum',
+  gpu:     'badge-gpu',
+  cpu:     'badge-cpu',
 }
 
-export default function MetricsPanel({ tick }) {
-  var [data, setData] = useState(null)
+var BACKEND_ICON = {
+  quantum: '⬡',
+  gpu:     '▣',
+  cpu:     '▢',
+}
 
-  useEffect(function () {
-    getMetrics().then(setData).catch(function () {})
-  }, [tick])
-
-  var empty = !data || data.total === 0
-
+export default function AuditTrail({ decisions }) {
   return (
     <div className="card">
       <div className="card-header" style={{ justifyContent: 'space-between' }}>
-        <span style={{ color: '#4ade80' }}>▦</span>
-        <span>Metrics</span>
-        {!empty && <span style={{ marginLeft: 'auto', color: '#374151', fontSize: 10 }}>{data.total} total</span>}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ color: '#4ade80' }}>☰</span>
+          Audit Trail
+        </div>
+        <span style={{ color: '#374151', fontSize: 10 }}>{decisions.length} entries</span>
       </div>
 
-      <div style={{ padding: 16 }}>
-        {empty ? (
-          <div style={{ textAlign: 'center', color: '#374151', fontSize: 11, padding: '32px 0', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            No data yet
-          </div>
-        ) : (
-          <>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 16 }}>
-              {ROWS.map(function (row) {
-                var dist = data.distribution[row.key] || { count: 0, pct: 0 }
+      {decisions.length === 0 ? (
+        <div style={{ padding: 32, textAlign: 'center', color: '#374151', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          No decisions recorded
+        </div>
+      ) : (
+        <div style={{ overflowX: 'auto', maxHeight: 280, overflowY: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11 }}>
+            <thead style={{ position: 'sticky', top: 0, backgroundColor: '#111827', borderBottom: '1px solid #1f2937' }}>
+              <tr>
+                {['ID', 'Time', 'Backend', 'QA', 'Cost', 'Type', 'Fallback', 'Conf'].map(function (h) {
+                  return (
+                    <th key={h} style={{ textAlign: 'left', padding: '8px 12px', fontSize: 9, letterSpacing: '0.1em', color: '#374151', fontWeight: 500, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+                      {h}
+                    </th>
+                  )
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {decisions.map(function (d, i) {
+                var cls = d.classification || {}
+                var badgeClass = BACKEND_BADGE[d.routing_decision] || 'badge-cpu'
+                var icon = BACKEND_ICON[d.routing_decision] || '▢'
                 return (
-                  <div key={row.key}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                      <span style={{ color: row.color, fontSize: 12 }}>{row.icon}</span>
-                      <span style={{ color: '#6b7280', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', flex: 1 }}>{row.label}</span>
-                      <span style={{ color: '#6b7280', fontSize: 10 }}>{dist.count}</span>
-                      <span style={{ color: row.color, fontSize: 11, fontWeight: 600, width: 36, textAlign: 'right' }}>{dist.pct}%</span>
-                    </div>
-                    <Bar pct={dist.pct} color={row.color} />
-                  </div>
+                  <tr
+                    key={d.id + '-' + i}
+                    style={{ borderBottom: '1px solid rgba(31,41,55,0.5)', transition: 'background 0.1s' }}
+                    onMouseEnter={function (e) { e.currentTarget.style.backgroundColor = 'rgba(13,17,23,0.6)' }}
+                    onMouseLeave={function (e) { e.currentTarget.style.backgroundColor = 'transparent' }}
+                  >
+                    <td style={{ padding: '7px 12px', color: '#6b7280', fontWeight: 500 }}>{d.id}</td>
+                    <td style={{ padding: '7px 12px', color: '#374151', whiteSpace: 'nowrap' }}>
+                      {new Date(d.timestamp).toLocaleTimeString()}
+                    </td>
+                    <td style={{ padding: '7px 12px' }}>
+                      <span className={badgeClass}>{icon} {(d.routing_decision || 'cpu').toUpperCase()}</span>
+                    </td>
+                    <td style={{ padding: '7px 12px', color: d.quantum_advantage_score >= 65 ? '#a78bfa' : d.quantum_advantage_score >= 35 ? '#60a5fa' : '#f59e0b' }}>
+                      {d.quantum_advantage_score || 0}
+                    </td>
+                    <td style={{ padding: '7px 12px', color: '#e2e8f0', whiteSpace: 'nowrap' }}>
+                      ${(d.estimated_cost_usd || 0).toFixed(5)}
+                    </td>
+                    <td style={{ padding: '7px 12px', color: '#6b7280', whiteSpace: 'nowrap' }}>
+                      {(cls.problem_type || d.workload && d.workload.problem_type || '—').replace(/_/g, ' ')}
+                    </td>
+                    <td style={{ padding: '7px 12px' }}>
+                      {d.fallback_applied
+                        ? <span style={{ color: '#fbbf24', fontSize: 10 }}>⚠ yes</span>
+                        : <span style={{ color: '#374151', fontSize: 10 }}>—</span>
+                      }
+                    </td>
+                    <td style={{ padding: '7px 12px', color: '#6b7280' }}>
+                      {(d.confidence || cls.confidence || 0)}%
+                    </td>
+                  </tr>
                 )
               })}
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-              {[
-                ['Fallback Rate', data.fallback_rate + '%', 'cost enforcement'],
-                ['Avg QA Score',  data.avg_qa_score,        'quantum advantage'],
-                ['Avg Cost',      '$' + (data.avg_cost || 0).toFixed(5), 'per workload'],
-                ['Total',         data.total,               'this session'],
-              ].map(function (item) {
-                return (
-                  <div key={item[0]} style={{ border: '1px solid #1f2937', padding: '10px 12px' }}>
-                    <div style={{ fontSize: 10, color: '#6b7280', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 2 }}>{item[0]}</div>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: '#e2e8f0' }}>{item[1]}</div>
-                    <div style={{ fontSize: 10, color: '#374151', marginTop: 2 }}>{item[2]}</div>
-                  </div>
-                )
-              })}
-            </div>
-          </>
-        )}
-      </div>
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   )
 }
