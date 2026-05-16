@@ -1,80 +1,31 @@
-# DWRM
+# DWRM (Dynamic Workload Routing Middleware)
 
-**Dynamic Workload Routing Middleware** — AI-driven middleware that classifies compute workloads and routes them to CPU, GPU, or quantum backends at runtime.
+**An AI-driven orchestration layer that safely classifies and routes compute workloads to CPU, GPU, or quantum backends at runtime.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue.svg)](https://python.org)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-black.svg)](https://vercel.com)
 
+### The Business Problem: Tool Space Interference
+As enterprises scale autonomous agents, they hit a critical bottleneck: packing too many tools (CRM, billing, DB access) into a single LLM context window drastically reduces routing accuracy and causes silent failures during handoffs. 
+
+**DWRM solves this.** It acts as the zero-trust traffic cop. Instead of building monolithic agents, DWRM allows developers to build hyper-narrow micro-agents. The middleware sits at the edge, ingests the workload, manages the state, and routes the request to the correct localized compute backend without dropping context.
+
+> 🛡️ **IP Notice:** The core hybrid routing methodology demonstrated in this repository is currently under a 10-claim USPTO patent application.
+
 ---
 
-## Stack
+### System Architecture
 
-| Layer    | Technology                          |
-|----------|-------------------------------------|
-| Frontend | React 18, Vite, Tailwind CSS        |
-| Backend  | FastAPI, Mangum (ASGI → serverless) |
-| AI       | Anthropic Claude API                |
-| Deploy   | Vercel (Vite build + Python serverless) |
-
-## Repo Structure
-
-```
-DWRM/
-├── frontend/               # React source — Vercel builds this on deploy
-│   ├── index.html
-│   ├── src/
-│   ├── package.json
-│   ├── package-lock.json
-│   └── vite.config.js
-├── api/
-│   └── index.py            # FastAPI + Mangum serverless handler
-├── package.json            # root marker
-├── vercel.json             # build config + API rewrite
-├── requirements.txt        # Python deps
-├── runtime.txt             # Python 3.11
-└── .env.example
-```
-
-## How the Deploy Works
-
-Vercel runs:
-1. `cd frontend && npm ci --include=dev && npm run build` — produces `frontend/dist/`
-2. Serves `frontend/dist/` as the static site
-3. Auto-detects `api/index.py` as a Python serverless function
-4. Rewrites `/api/*` → the function
-
-## Deploy to Vercel
-
-1. Push this repo to GitHub
-2. Import at [vercel.com/new](https://vercel.com/new)
-3. Leave all framework / build / output settings on default — `vercel.json` declares them
-4. Add environment variable: `ANTHROPIC_API_KEY`
-5. Deploy
-
-## Local Development
-
-**Backend (terminal 1):**
-```bash
-pip install -r requirements.txt fastapi uvicorn
-uvicorn api.index:app --reload
-```
-
-**Frontend (terminal 2):**
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Vite dev server runs on `http://localhost:3000` and proxies `/api/*` to `http://localhost:8000`.
-
-## Environment Variables
-
-| Variable            | Description                  |
-|---------------------|------------------------------|
-| `ANTHROPIC_API_KEY` | Anthropic API key (required) |
-
-## License
-
-MIT — see [LICENSE](LICENSE)
+```mermaid
+graph TD
+    A[Client Request / React Frontend] -->|Stateful Handoff| B(FastAPI Orchestrator)
+    B --> C{Workload Classifier}
+    C -->|Standard Logic| D[CPU Backend Worker]
+    C -->|Heavy Compute/LLM| E[GPU Backend Worker]
+    C -->|Optimization| F[Quantum/SQA Backend]
+    D --> G[Response Verification]
+    E --> G
+    F --> G
+    G -->|Context Retained| B
+    B -->|Verified Output| A
