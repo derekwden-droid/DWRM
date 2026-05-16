@@ -1,6 +1,0 @@
-{
-  "name": "dwrm",
-  "version": "1.0.0",
-  "private": true,
-  "description": "DWRM root. Vercel builds the React frontend from _frontend/ and serves the Python API from /api/."
-}
